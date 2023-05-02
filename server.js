@@ -3,7 +3,7 @@ var fs = require('fs');
 var app = express();
 app.use(express.static('public'))
 app.use(express.static('files'))
-app.use(express.static('files'))
+
 
 
 const bodyParser = require('body-parser');
