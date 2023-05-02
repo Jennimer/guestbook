@@ -3,7 +3,7 @@ var fs = require('fs');
 var app = express();
 app.use(express.static('public'))
 app.use(express.static('files'))
-
+app.use(express.static('files'))
 
 
 const bodyParser = require('body-parser');
@@ -14,7 +14,7 @@ app.use(express.static("./public/home"));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + '/public/home.html')
 })
-
+app.use(express.static("./public/style.css"));
 
 // Serve a form to the user
 app.get("/newmessage", (req, res) => {
@@ -24,7 +24,10 @@ app.get("/ajaxmessage", (req, res) => {
 
   res.sendFile(__dirname + '/public/ajaxform.html');
 });
+app.get("/dataroute", (req, res) => {
 
+  res.sendFile(__dirname + '/guestdata.json');
+});
 
 // POST
 
@@ -32,6 +35,7 @@ app.post('/writemessage', (req, res) => {
 
   var data = require('./guestdata.json');
   const user = {
+    id: data.length + 1,
     name: req.body.name,
     date: new Date(),
     country: req.body.country,
@@ -60,7 +64,7 @@ app.get("/guestbook", (req, res) => {
   var data = require('./guestdata.json');
 
   //parse result in the table
-  var results = '<table border="1px"' + 
+  var results =  '<table id="guestbooktable" border="3px"' + 
   '<thead>' +
     '<tr>' +
     '<th>Name</th>' +
@@ -78,6 +82,7 @@ app.get("/guestbook", (req, res) => {
       '<td>' + data[i].message + '</td>' +
       '</tr>' +
       '<tr></tr>' 
+      
   }
   res.send(results);
 });

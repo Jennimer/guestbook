@@ -9,10 +9,23 @@
     align-content: center;
 
 }
-
-table {
-  border: 1px solid rgb(67, 65, 65);
+h1{
+  margin: 20px;
+}
+form {
+  
   padding: 10px;
+  margin: 20px;
+  background-color: rgb(123, 168, 143);
+}
+table {
+  padding: 10px;
+  margin: 20px;
+}
+#guestbooktable{
+  padding: 10px;
+  color:blue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .backgrounddiv {
   position: relative;
@@ -20,7 +33,6 @@ table {
   align-items: center;
   justify-content: center;
   align-content: flex-start;
-
 
 }
 .nopadding {
@@ -55,14 +67,6 @@ table {
     }
 
 
-
-    #messageform {
-      border: 1px solid lightgrey;
-      padding: 2px;
-    }
-    #messageform body {
-      margin: 20px;
-    }
 
 
  
