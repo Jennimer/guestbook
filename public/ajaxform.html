@@ -56,7 +56,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:3000/dataroute",
+                url: "http://localhost:"+3000||process.env.PORT+"/dataroute",
                 success: function (data) {
                     $(messagearea).append(
                         '<thead>' +
@@ -102,7 +102,7 @@
                     };
                 $.ajax({
                     type: "GET",
-                    url: 'http://localhost:3000/writemessage',
+                    url: "http://localhost:"+3000||process.env.PORT+"/dataroute",
                     data: formData,
                     dataType: "json",
                     encode: true,
