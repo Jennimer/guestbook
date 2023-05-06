@@ -8,7 +8,7 @@ const cors = require('cors');
 
 app.use(cors());
 
-
+//Fix "has been blocked by CORS policy" problem
 const corsOptions ={
     origin:'http://localhost:3000', 
     origin: process.env.PORT,
