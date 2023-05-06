@@ -20,9 +20,10 @@ app.use(cors(corsOptions));
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Let's give the material from the public folder
+//serve the material from the public folder
 app.use(express.static("./public/home"));
 
+//Route which show the frontpage
 app.get("/", (req, res) => {
   res.sendFile(__dirname + '/public/home.html')
 })
@@ -32,16 +33,18 @@ app.use(express.static("./public/style.css"));
 app.get("/newmessage", (req, res) => {
   res.sendFile(__dirname + '/public/form.html');
 });
+// Serve a newform to the user after submit
 app.get("/ajaxmessage", (req, res) => {
 
   res.sendFile(__dirname + '/public/ajaxform.html');
 });
+
 app.get("/dataroute", (req, res) => {
 
   res.sendFile(__dirname + '/guestdata.json');
 });
 
-// POST
+//Route to handle POST form requests.
 
 app.post('/writemessage', (req, res) => {
 
@@ -63,14 +66,13 @@ app.post('/writemessage', (req, res) => {
       console.log("It's saved!");
     });
     console.log(JSON.stringify(user));
-    res.redirect('/ajaxmessage');
+    res.redirect('/ajaxmessage'); 
   });
   
 
-//Route for sending post data
-//Route to handle POST form requests.
 
 
+//Get route which display the messagelist in the table
 
 app.get("/guestbook", (req, res) => {
   var data = require('./guestdata.json');
