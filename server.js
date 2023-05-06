@@ -5,11 +5,8 @@ app.use(express.static('public'))
 app.use(express.static('files'))
 const cors = require('cors');
 
-app.use(cors());
-const PORT = process.env.PORT || 3000;
-const cors = require('cors');
 const corsOptions ={
-    origin: PORT,
+    origin:'http://localhost:3000', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
@@ -103,7 +100,7 @@ app.get("*", function (request, response) {
   //response.send("Can't find the requested page", 404);
 });
 //web server creation with Express
-
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
   console.log("Example app is listening on port", PORT);
 });

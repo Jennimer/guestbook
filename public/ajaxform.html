@@ -51,12 +51,12 @@
     <script>
         $(document).ready(function () {
             console.log("Messages coming!")
-            const PORT = process.env.PORT || 3000;
+            
             const messagearea = document.getElementById('messagelist');
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:"+PORT+"/dataroute",
+                url: "http://localhost:3000/dataroute",
                 success: function (data) {
                     $(messagearea).append(
                         '<thead>' +
