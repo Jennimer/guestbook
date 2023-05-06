@@ -49,6 +49,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script>
+        //display table to the ajaxformpage
         $(document).ready(function () {
             console.log("Messages coming!")
             const messagearea = document.getElementById('messagelist');
@@ -83,9 +84,9 @@
         //Ajax call form data
         $(document).ready(function () {
             $("form").submit(function (event) {
-                var nameInput = document.forms["messageform"]["nametwo"].value;
-                var countryInput = document.forms["messageform"]["countrytwo"].value;
-                var messageInput = document.forms["messageform"]["messagetwo"].value;
+                var nameInput = document.forms["messageform2"]["nametwo"].value;
+                var countryInput = document.forms["messageform2"]["countrytwo"].value;
+                var messageInput = document.forms["messageform2"]["messagetwo"].value;
 
                 //Don't allow empty fields  
                 if (nameInput == "" || countryInput == "" || messageInput == "") {
