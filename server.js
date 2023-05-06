@@ -3,7 +3,18 @@ var fs = require('fs');
 var app = express();
 app.use(express.static('public'))
 app.use(express.static('files'))
+const cors = require('cors');
 
+app.use(cors());
+
+const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    origin: process.env.PORT,
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 
 const bodyParser = require('body-parser');
