@@ -5,6 +5,7 @@ app.use(express.static('public'))
 app.use(express.static('files'))
 const cors = require('cors');
 
+
 const corsOptions ={
     origin:'http://localhost:3000', 
     credentials:true,            //access-control-allow-credentials:true
