@@ -51,11 +51,12 @@
     <script>
         $(document).ready(function () {
             console.log("Messages coming!")
+            const PORT = process.env.PORT || 3000;
             const messagearea = document.getElementById('messagelist');
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:3000/dataroute",
+                url: "http://localhost:"+PORT+"/dataroute",
                 success: function (data) {
                     $(messagearea).append(
                         '<thead>' +
@@ -83,9 +84,9 @@
         //Ajax call form data
         $(document).ready(function () {
             $("form").submit(function (event) {
-                var nameInput = document.forms["messageform"]["nametwo"].value;
-                var countryInput = document.forms["messageform"]["countrytwo"].value;
-                var messageInput = document.forms["messageform"]["messagetwo"].value;
+                var nameInput = document.forms["messageform2"]["nametwo"].value;
+                var countryInput = document.forms["messageform2"]["countrytwo"].value;
+                var messageInput = document.forms["messageform2"]["messagetwo"].value;
 
                 //Don't allow empty fields  
                 if (nameInput == "" || countryInput == "" || messageInput == "") {
